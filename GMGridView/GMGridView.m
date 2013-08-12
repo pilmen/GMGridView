@@ -1270,6 +1270,10 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     
     CGSize contentSize = [self.layoutStrategy contentSize];
     
+    if (contentSize.height < self.frame.size.height) {
+        contentSize.height = self.frame.size.height + 1;
+    }
+    
     _minPossibleContentOffset = CGPointMake(0, 0);
     _maxPossibleContentOffset = CGPointMake(contentSize.width - self.bounds.size.width + self.contentInset.right, 
                                             contentSize.height - self.bounds.size.height + self.contentInset.bottom);
